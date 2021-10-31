@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import './App.scss';
+import Navbar from './components/Navbar';
+import OrdersList from './components/OrdersList';
+import OrderInput from './components/OrderInput';
+import { addOrder } from './redux/action';
+
+//RTL
+import RTL from './components/RTL';
+
+import Grid from '@mui/material/Grid';
+
 
 function App() {
+  // const state = useSelector((state) => ({ ...state.orders }));
+
+  let dispatch = useDispatch();
+
+  const create = (newOrder) => {
+    dispatch(addOrder(newOrder));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+
+      <Grid container spacing={1}>
+
+        <Grid className="Input" item xs={12} md={8}>
+          <RTL>
+            <OrderInput createOrder={create} />
+          </RTL>
+        </Grid>
+
+        <Grid item xs={12} md={4}>
+          <OrdersList />
+        </Grid>
+      </Grid>
+
     </div>
   );
 }
