@@ -12,8 +12,6 @@ import Grid from '@mui/material/Grid';
 
 
 function App() {
-  // const state = useSelector((state) => ({ ...state.orders }));
-
   let dispatch = useDispatch();
 
   const create = (newOrder) => {
