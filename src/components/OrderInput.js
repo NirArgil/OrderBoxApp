@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-//DatePicker
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateAdapter from '@mui/lab/AdapterMoment';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
@@ -17,28 +16,32 @@ const OrderInput = ({ createOrder }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createOrder({ firstName, lastName, date });
 
-    setFirstName("");
-    setLastName("");
-    setDate("");
+    if (date == '') {
+      alert("Please fill the date input")
+    } else {
+      createOrder({ firstName, lastName, date });
+
+      setFirstName("");
+      setLastName("");
+      setDate("");
+    }
   };
 
   const handleChangeDate = (newValue) => {
     const customedDate = newValue._d.toLocaleString()
     setDate(customedDate);
-    console.log(customedDate);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h1>הזמנה חדשה</h1>
-      <br />
+     
       <TextField
         label="שם משפחה"
         variant="outlined"
         type="text"
-
+        required
         id="lastName"
         name="lastName"
         value={lastName}
@@ -50,7 +53,7 @@ const OrderInput = ({ createOrder }) => {
         label="שם פרטי"
         variant="outlined"
         type="text"
-
+        required
         id="firstName"
         name="firstName"
         value={firstName}
@@ -64,6 +67,7 @@ const OrderInput = ({ createOrder }) => {
             <DesktopDatePicker
               label="Desktop תאריך"
               InputAdornmentProps={{ position: "start" }}
+
               inputFormat="MM/dd/yyyy"
               value={date}
               onChange={handleChangeDate}
@@ -89,7 +93,7 @@ const OrderInput = ({ createOrder }) => {
         endIcon={<SendRoundedIcon />}
 
         sx={{ mt: 3, textTransform: 'none' }}>
-        הוסף הזמנה   
+        הוסף הזמנה
       </Button>
     </form>
   )

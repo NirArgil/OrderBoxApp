@@ -1,13 +1,11 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './App.scss';
 import Navbar from './components/Navbar';
 import OrdersList from './components/OrdersList';
 import OrderInput from './components/OrderInput';
 import { addOrder } from './redux/action';
 
-//RTL
 import RTL from './components/RTL';
-
 import Grid from '@mui/material/Grid';
 
 

@@ -19,7 +19,6 @@ const OrdersList = () => {
             <ul>
                 <div className="orderList">
                     <h3>רשימת הזמנות</h3>
-                    <br/>
                     <h4>{state.orders.length} :מספר הזמנות</h4>
                     {state.orders && state.orders.map((order) => {
                         return (

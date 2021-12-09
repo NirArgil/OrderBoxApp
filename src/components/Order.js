@@ -25,14 +25,13 @@ const Order = ({ toggleOrder, firstName, lastName, date, completed, id, removeOr
     function orderNum(id) {
         return state.orders.findIndex(order => order.id === id);
     }
-    console.log(orderNum(id));
 
     return (
         <div>
             {isEditing ? (
 
                 <form className="OrderEditForm" onSubmit={handleUpdate}>
-                    <br />
+                    
                     <input
                         type="text"
                         name="firstName"
