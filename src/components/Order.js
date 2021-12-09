@@ -7,7 +7,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import "../App.scss"
 import { Button } from '@mui/material';
 
-
 const Order = ({ toggleOrder, firstName, lastName, date, completed, id, removeOrder, updateOrder }) => {
     const state = useSelector((state) => ({ ...state.orders }));
 

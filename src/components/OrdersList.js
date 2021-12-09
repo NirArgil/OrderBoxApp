@@ -4,7 +4,7 @@ import '../App.scss'
 
 import { completeOrder, removeOrder, updateOrder } from "../redux/action"
 import Order from './Order';
-
+import { List, ListItem } from '@mui/material';
 
 const OrdersList = () => {
     const state = useSelector((state) => ({ ...state.orders }));
@@ -16,7 +16,7 @@ const OrdersList = () => {
 
     return (
         <>
-            <ul>
+            <List>
                 <div className="orderList">
                     <h3>רשימת הזמנות</h3>
                     <h4>{state.orders.length} :מספר הזמנות</h4>
@@ -40,7 +40,7 @@ const OrdersList = () => {
                         )
                     })}
                 </div>
-            </ul>
+            </List>
         </>
     )
 }
