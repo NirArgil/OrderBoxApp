@@ -4,7 +4,7 @@ import '../App.scss'
 
 import { completeOrder, removeOrder, updateOrder } from "../redux/action"
 import Order from './Order';
-import { List, ListItem } from '@mui/material';
+import { List} from '@mui/material';
 
 const OrdersList = () => {
     const state = useSelector((state) => ({ ...state.orders }));

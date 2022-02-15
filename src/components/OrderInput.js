@@ -18,7 +18,7 @@ const OrderInput = ({ createOrder }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (date == '') {
+    if (date === '') {
       alert("Please fill the date input")
     } else {
       createOrder({ firstName, lastName, date });
